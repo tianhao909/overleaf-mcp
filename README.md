@@ -1,4 +1,4 @@
-# @tianhao909/overleaf-mcp
+# @markfu909/overleaf-mcp
 
 [English](README.md) | [中文](README.zh-CN.md)
 
@@ -21,7 +21,7 @@ The easiest way to use this MCP server is via npx. Add to your Claude Desktop co
   "mcpServers": {
     "overleaf": {
       "command": "npx",
-      "args": ["-y", "@tianhao909/overleaf-mcp"]
+      "args": ["-y", "@markfu909/overleaf-mcp"]
     }
   }
 }
