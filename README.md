@@ -1,18 +1,54 @@
-# Overleaf MCP Server
+# @futianhao/overleaf-mcp
+
+[English](README.md) | [中文](README.zh-CN.md)
 
 An MCP (Model Context Protocol) server that provides access to Overleaf projects via Git integration. This allows Claude and other MCP clients to read LaTeX files, analyze document structure, and extract content from Overleaf projects.
 
 ## Features
 
-- 📄 **File Management**: List and read files from Overleaf projects
-- 📋 **Document Structure**: Parse LaTeX sections and subsections
-- 🔍 **Content Extraction**: Extract specific sections by title
-- 📊 **Project Summary**: Get overview of project status and structure
-- 🏗️ **Multi-Project Support**: Manage multiple Overleaf projects
+- File Management: List and read files from Overleaf projects
+- Document Structure: Parse LaTeX sections and subsections
+- Content Extraction: Extract specific sections by title
+- Project Summary: Get overview of project status and structure
+- Multi-Project Support: Manage multiple Overleaf projects
 
-## Installation
+## Quick Start (npx)
 
-1. Clone this repository
+The easiest way to use this MCP server is via npx. Add to your Claude Desktop configuration:
+
+```json
+{
+  "mcpServers": {
+    "overleaf": {
+      "command": "npx",
+      "args": ["-y", "@futianhao/overleaf-mcp"]
+    }
+  }
+}
+```
+
+Then create a `projects.json` file in your home directory at `~/.overleaf-mcp/projects.json`:
+
+```json
+{
+  "projects": {
+    "default": {
+      "name": "My Paper",
+      "projectId": "YOUR_OVERLEAF_PROJECT_ID",
+      "gitToken": "YOUR_OVERLEAF_GIT_TOKEN"
+    }
+  }
+}
+```
+
+## Manual Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/tianhao909/overleaf-mcp.git
+   cd overleaf-mcp
+   ```
+
 2. Install dependencies:
    ```bash
    npm install

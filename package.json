@@ -1,7 +1,7 @@
 {
-  "name": "overleaf-mcp-server",
+  "name": "@futianhao/overleaf-mcp",
   "version": "1.0.0",
-  "description": "MCP server for Overleaf integration",
+  "description": "MCP server for Overleaf integration - read LaTeX files, analyze document structure, and manage Overleaf projects via Git",
   "type": "module",
   "main": "overleaf-mcp-server.js",
   "bin": {
@@ -10,10 +10,37 @@
   "scripts": {
     "start": "node overleaf-mcp-server.js"
   },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "overleaf",
+    "latex",
+    "git",
+    "claude",
+    "ai",
+    "llm"
+  ],
+  "author": "futianhao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tianhao909/overleaf-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tianhao909/overleaf-mcp/issues"
+  },
+  "homepage": "https://github.com/tianhao909/overleaf-mcp#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "files": [
+    "overleaf-mcp-server.js",
+    "projects.example.json",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ]
 }

@@ -7,29 +7,50 @@ import {
   ListToolsRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 import { spawn } from 'child_process';
-import { readFile } from 'fs/promises';
+import { readFile, access, mkdir } from 'fs/promises';
 import { promisify } from 'util';
 import { exec as execCallback } from 'child_process';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import os from 'os';
+import { constants } from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const exec = promisify(execCallback);
 
-// Load projects configuration
-let projectsConfig;
-try {
-  const configPath = path.join(__dirname, 'projects.json');
-  const configData = await readFile(configPath, 'utf-8');
-  projectsConfig = JSON.parse(configData);
-} catch (error) {
-  console.error('Error loading projects.json:', error.message);
-  console.error('Please create projects.json from projects.example.json');
+// Try multiple config locations
+async function loadConfig() {
+  const configLocations = [
+    // 1. User home directory (for npx usage)
+    path.join(os.homedir(), '.overleaf-mcp', 'projects.json'),
+    // 2. Current working directory
+    path.join(process.cwd(), 'projects.json'),
+    // 3. Package directory (for local development)
+    path.join(__dirname, 'projects.json'),
+  ];
+
+  for (const configPath of configLocations) {
+    try {
+      await access(configPath, constants.R_OK);
+      const configData = await readFile(configPath, 'utf-8');
+      console.error(`Loaded config from: ${configPath}`);
+      return JSON.parse(configData);
+    } catch {
+      continue;
+    }
+  }
+
+  console.error('Error: projects.json not found in any of these locations:');
+  configLocations.forEach(loc => console.error(`  - ${loc}`));
+  console.error('\nPlease create projects.json with your Overleaf credentials.');
+  console.error('See: https://github.com/tianhao909/overleaf-mcp#readme');
   process.exit(1);
 }
+
+// Load projects configuration
+const projectsConfig = await loadConfig();
 
 // Git operations helper
 class OverleafGitClient {
