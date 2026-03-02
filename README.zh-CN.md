@@ -1,4 +1,4 @@
-# @futianhao/overleaf-mcp
+# @tianhao909/overleaf-mcp
 
 [English](README.md) | [中文](README.zh-CN.md)
 
@@ -21,7 +21,7 @@
   "mcpServers": {
     "overleaf": {
       "command": "npx",
-      "args": ["-y", "@futianhao/overleaf-mcp"]
+      "args": ["-y", "@tianhao909/overleaf-mcp"]
     }
   }
 }
@@ -197,6 +197,16 @@ OverleafMCP/
 - `projects.json` 已加入 gitignore 以保护你的凭证
 - 不要提交真实的项目 ID 或 Git 令牌
 - 使用提供的 `projects.example.json` 作为模板
+
+## 致谢
+
+本项目 fork 自 [mjyoo2/OverleafMCP](https://github.com/mjyoo2/OverleafMCP)。感谢原作者创建了这个优秀的 MCP 服务器。
+
+**本 fork 的改进：**
+- 添加 npm 包支持（可通过 npx 安装）
+- 添加中文文档
+- 支持多配置文件路径
+- 各种部署优化改进
 
 ## 许可证
 

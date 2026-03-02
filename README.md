@@ -1,4 +1,4 @@
-# @futianhao/overleaf-mcp
+# @tianhao909/overleaf-mcp
 
 [English](README.md) | [中文](README.zh-CN.md)
 
@@ -21,7 +21,7 @@ The easiest way to use this MCP server is via npx. Add to your Claude Desktop co
   "mcpServers": {
     "overleaf": {
       "command": "npx",
-      "args": ["-y", "@futianhao/overleaf-mcp"]
+      "args": ["-y", "@tianhao909/overleaf-mcp"]
     }
   }
 }
@@ -197,6 +197,16 @@ OverleafMCP/
 - `projects.json` is gitignored to protect your credentials
 - Never commit real project IDs or Git tokens
 - Use the provided `projects.example.json` as a template
+
+## Acknowledgements
+
+This project is forked from [mjyoo2/OverleafMCP](https://github.com/mjyoo2/OverleafMCP). Special thanks to the original author for creating this excellent MCP server.
+
+**Changes in this fork:**
+- Added npm package support (installable via npx)
+- Added Chinese documentation
+- Support multiple config file locations
+- Various improvements for easier deployment
 
 ## License
 

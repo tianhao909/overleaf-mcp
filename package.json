@@ -1,5 +1,5 @@
 {
-  "name": "@futianhao/overleaf-mcp",
+  "name": "@tianhao909/overleaf-mcp",
   "version": "1.0.0",
   "description": "MCP server for Overleaf integration - read LaTeX files, analyze document structure, and manage Overleaf projects via Git",
   "type": "module",
@@ -20,7 +20,7 @@
     "ai",
     "llm"
   ],
-  "author": "futianhao",
+  "author": "tianhao909",
   "license": "MIT",
   "repository": {
     "type": "git",
